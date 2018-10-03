@@ -12,15 +12,43 @@
     </div>
 </div>
 <div class="flex-section gtco-gray-bg">
-    <div class="col-1">
-        <div class="text">
-            <div class="row row-pb-sm">
-                <div class="col-md-12">
-                    <h2>Creative Minds</h2>
-                    <p>
-The creation of something new is not accomplished by the intellect but by the play instinct acting from inner necessity. The creative mind plays with the objects it loves.</p>
-                    <!--<p>Quaerat quisquam quasi minima at molestias porro accusantium qui atque doloremque ab, odio tempora obcaecati cumque veritatis quo, assumenda nihil dolor optio enim fugit accusamus laborum. Autem neque dignissimos, corrupti, fugiat labore nisi illo, delectus, alias natus optio distinctio culpa!</p>-->
+    <div class="row-gallery">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="main-title text-center">
+                    <!--<i class="icon-instagram" style="font-size: 45px;"></i>-->
+                    <h1>INSTAGRAM FEED</h1>
                 </div>
+            </div>
+        </div>
+        <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
+            <div class="single-news card">
+                <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n4.jpg'); ?>" alt="Card image cap">                
+            </div>
+        </div>
+        <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
+            <div class="single-news card">
+                <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n5.jpg'); ?>" alt="Card image cap">               
+            </div>
+        </div>
+        <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
+            <div class="single-news card">
+                <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n6.jpg'); ?>" alt="Card image cap">
+            </div>
+        </div>
+        <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
+            <div class="single-news card">
+                <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n7.jpg'); ?>" alt="Card image cap">                
+            </div>
+        </div>
+        <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
+            <div class="single-news card">
+                <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n8.jpg'); ?>" alt="Card image cap">
+            </div>
+        </div>
+        <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
+            <div class="single-news card">
+                <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n9.jpg'); ?>" alt="Card image cap">                
             </div>
         </div>
     </div>

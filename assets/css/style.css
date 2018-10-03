@@ -2817,3 +2817,21 @@ button#btn-2 a:hover{
 .simple-form input:invalid, .simple-form textarea:invalid {
   border-left-color: salmon;
 }
+
+/*tangre*/
+.row-gallery {
+    width: 100%;
+    padding: 25px 0px;
+}
+
+.gallery-item {
+    padding: 0px;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    position: relative;
+    display: inline-block;
+}
+
+.main-title {
+    margin-bottom: 25px;
+}
