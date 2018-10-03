@@ -15,9 +15,9 @@
     <div class="row-gallery">
         <div class="row justify-content-center">
             <div class="col-lg-12">
-                <div class="main-title text-center">
-                    <!--<i class="icon-instagram" style="font-size: 45px;"></i>-->
-                    <h1>INSTAGRAM FEED</h1>
+                <div class="main-title">
+                    <i class="icon-instagram insta-icon hidden-xs"></i>
+                    <h2 class="insta-feed">Instagram Feed</h2>
                 </div>
             </div>
         </div>

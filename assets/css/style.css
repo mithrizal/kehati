@@ -2822,6 +2822,7 @@ button#btn-2 a:hover{
 .row-gallery {
     width: 100%;
     padding: 25px 0px;
+    
 }
 
 .gallery-item {
@@ -2834,4 +2835,40 @@ button#btn-2 a:hover{
 
 .main-title {
     margin-bottom: 25px;
+    height: 30px;
+}
+
+   
+.insta-feed {
+    font-weight: 300;
+    /*padding: 25px 0;*/
+    font-size: 30px;
+    color: #000;
+    /*margin-top: 45%;*/
+    text-align: center;
+    /*margin-top: 0;*/
+    position: absolute;
+    top: 33%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+    .insta-feed {
+        font-size: 18px;
+        margin-bottom: 0px;
+    }
+    
+    .main-title {
+        margin-bottom: 18px;
+        height: 10px;
+    }
+}
+
+.insta-icon {
+    position: absolute;
+    left: 42%;
+    color: #000;
+    font-size: 45px;
+    top: -5%
 }
