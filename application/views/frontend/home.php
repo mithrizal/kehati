@@ -16,41 +16,65 @@
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="main-title">
-                    <i class="icon-instagram insta-icon hidden-xs"></i>
-                    <h2 class="insta-feed">Instagram Feed</h2>
+                        <!--<i class="icon-instagram insta-icon hidden-xs"></i>-->
+                        <h2 class="insta-feed">Latest Gallery</h2>
+                    <!--</a>-->
                 </div>
             </div>
         </div>
-        <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
-            <div class="single-news card">
+        <!-- InstaWidget -->
+<!--        <div class="text-center">
+            <a href="https://instawidget.net/v/user/Kehati.shoes" id="link-1b70042141e1b54c5bd9a1b4e965dba26bec1c52f47c73f06946b0ede0cbe2b8">@Kehati.shoes</a>
+            <script src="https://instawidget.net/js/instawidget.js?u=1b70042141e1b54c5bd9a1b4e965dba26bec1c52f47c73f06946b0ede0cbe2b8&width=1500px"></script>
+        </div>        
+         SnapWidget 
+        <div class="text-center">
+            <script src="https://snapwidget.com/js/snapwidget.js"></script>
+            <iframe src="https://snapwidget.com/embed/606637" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
+        </div>
+         elfsight 
+        <div class="text-center">
+            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+            <div class="elfsight-app-be11759d-2012-45cf-aaed-3b7d226e3c13"></div>
+        </div>-->
+        <!-- GrahamSnaps Widget Embed -->
+        <div class="text-center">
+            <!-- GrahamSnaps Widget Embed -->
+            <div id="gs-grid" class="gs-wLPtUFxd1Jgo9Q"></div>
+            <script>(function(a,b,c,d,e){if(!(e in a)){a.gs=function(){a.gs.q.push(arguments);};a.gs.q=[];}var f=b.createElement(c);f.src=d;f.async=!0;var g=b.getElementsByTagName(c)[0];g.parentNode.insertBefore(f,g);})(window,document,"script","https://cdn.grahamsnaps.com/js/grid.js","gs");gs("Grid", "wLPtUFxd1Jgo9Q");</script>
+<!--            <div id="gs-grid" class="gs-f5faA9K5i0Yklg"></div>
+            <script>(function(a,b,c,d,e){if(!(e in a)){a.gs=function(){a.gs.q.push(arguments);};a.gs.q=[];}var f=b.createElement(c);f.src=d;f.async=!0;var g=b.getElementsByTagName(c)[0];g.parentNode.insertBefore(f,g);})(window,document,"script","https://cdn.grahamsnaps.com/js/grid.js","gs");gs("Grid", "f5faA9K5i0Yklg");</script>-->
+        </div>
+<!--        <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
+            <a target="_blank" href="https://www.instagram.com/kehati.shoes/">
                 <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n4.jpg'); ?>" alt="Card image cap">                
-            </div>
+            </a>
         </div>
         <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
-            <div class="single-news card">
+            <a target="_blank" href="https://www.instagram.com/kehati.shoes/">
                 <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n5.jpg'); ?>" alt="Card image cap">               
-            </div>
+            </a>
         </div>
         <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
-            <div class="single-news card">
+            <a target="_blank" href="https://www.instagram.com/kehati.shoes/">
                 <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n6.jpg'); ?>" alt="Card image cap">
-            </div>
+            </a>
         </div>
         <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
-            <div class="single-news card">
+            <a target="_blank" href="https://www.instagram.com/kehati.shoes/">
                 <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n7.jpg'); ?>" alt="Card image cap">                
-            </div>
+            </a>
         </div>
         <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
-            <div class="single-news card">
+            <a target="_blank" href="https://www.instagram.com/kehati.shoes/">
                 <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n8.jpg'); ?>" alt="Card image cap">
-            </div>
+            </a>
         </div>
         <div class="gallery-item col-md-2 col-sm-2 col-xs-6">
-            <div class="single-news card">
+            <a target="_blank" href="https://www.instagram.com/kehati.shoes/">
                 <img class="img-responsive" src="<?php echo base_url('assets/data/gallery/n9.jpg'); ?>" alt="Card image cap">                
-            </div>
-        </div>
+            </a>
+        </div>        -->
     </div>
 </div>
 <!--<div class="col-2 flex-img" style="background-image: url('<?php echo base_url('assets/images/img_bg_2.jpg'); ?>);'"></div>-->
@@ -69,77 +93,24 @@
 <div class="flex-section gtco-gray-bg" style="padding: 1px;">
     <!--<div class="gtco-container">-->
     <div class="row">
+        <?php
+        $no = 0;
+        foreach ($products as $product) {
+        ?>    
         <div class="store-item col-md-3 col-sm-3 col-xs-6">
-            <a href="<?php echo base_url("home/collections/"); ?>" class="gtco-card-item">
+            <a href="<?php echo base_url("home/collections/" . strtolower(str_replace(array(' ', '/'), array('-', '-'), $product->Category)) . "/" . strtolower($product->Code)); ?>" 
+               class="gtco-card-item" title="<?php echo $product->Name; ?>" alt="<?php echo $product->Name; ?>">
                 <figure>
                     <div class="overlay"></div>
                     <div>
-                        <img src="<?php echo base_url('assets/data/product/kht-09.jpg'); ?>" alt="Image" class="img-responsive">
-                        <div class="product-content">Olla</div>
+                        <img src="<?php echo base_url('assets/data/product/'.$product->Id.'.jpg'); ?>" alt="<?php echo $product->Code; ?>" class="img-responsive">
+                        <div class="product-content"><?php echo $product->Name; ?></div>
                     </div>                    
                 </figure>
             </a>
         </div>
-        <div class="store-item col-md-3 col-sm-3 col-xs-6">
-            <a href="<?php echo base_url("home/collections/"); ?>" class="gtco-card-item">
-                <figure>
-                    <div class="overlay"></div>
-                    <div>
-                        <img src="<?php echo base_url('assets/data/product/kht-10.jpg'); ?>" alt="Image" class="img-responsive">
-                        <div class="product-content">Calia</div>
-                    </div> 
-                </figure>
-            </a>
-        </div>
-        <div class="store-item col-md-3 col-sm-3 col-xs-6">
-            <a href="<?php echo base_url("home/collections/"); ?>" class="gtco-card-item">
-                <figure>
-                    <div class="overlay"></div>
-                    <div>
-                        <img src="<?php echo base_url('assets/data/product/kht-08.jpg'); ?>" alt="Image" class="img-responsive">
-                        <div class="product-content">Gatan</div>
-                    </div> 
-                </figure>
-            </a>
-        </div>
-        <div class="store-item col-md-3 col-sm-3 col-xs-6">
-            <a href="<?php echo base_url("home/collections/"); ?>" class="gtco-card-item">
-                <figure>
-                    <div class="overlay"></div>
-                    <div>
-                        <img src="<?php echo base_url('assets/data/product/kht-04.jpg'); ?>" alt="Image" class="img-responsive">
-                        <div class="product-content">Daria</div>
-                    </div> 
-                </figure>
-            </a>
-        </div>
+        <?php } ?>             
         <div class="clearfix visible-lg-block visible-md-block"></div>
     </div>
     <!--</div>-->
 </div>
-
-<!--<div id="gtco-subscribe">
-    <div class="gtco-container">
-        <div class="row animate-box">
-            <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-                <h2>Keep In Touch</h2>
-                <p>Subscribe to hear the latest news from Kehati Shoes.</p>
-            </div>
-        </div>
-        <div class="row animate-box">
-            <div class="col-md-8 col-md-offset-2">
-                <form class="form-inline">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your Email...">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <button type="submit" class="btn btn-subscribe btn-block">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>-->

@@ -14,28 +14,26 @@
                 <div class="row"><div class="col-xs-12"><div class="top-divider"></div></div></div>
                 <div>
                     <div class="col-sm-7 col-xs-12">
-                        <img id="product-code" class="product-images" src="<?php echo base_url('assets/data/product/kht-02-zoom.jpg'); ?>" alt="Citra Stones 2"/>
+                        <img id="<?php echo $product->Code; ?>" class="product-images" src="<?php echo base_url('assets/data/product/'.$product->Id.'.jpg'); ?>" alt="<?php echo $product->Name; ?>"/>
                     </div>
                     <div class="col-sm-5 col-xs-12 col-product-detail">
-                        <h1 class="product-title">Sarah</h1>
-                        <p>Pump Shoes.</p>
+                        <h1 class="product-title"><?php echo strtoupper($product->Name); ?></h1>
+                        <p><?php echo $product->Description; ?></p>
                         <h3 class="product-sub"><span style="border-bottom: 1px solid #555555 !important;">DETAILS</span></h3>
                         <p class="product-detail">
                         <ul>
-                            <li>heel height: 5cm</li>
-                            <!--<li>heel pitch: 100MM</li>-->
-                            <li>composition: Metallic leather.</li>
-                            <li>SKU: SRH-SEP-18-PRLND</li>
+                            <?php if(isset($product->Detail_1)) { ?> <li><?php echo ucwords($product->Detail_1); ?></li> <?php } ?>
+                            <?php if(isset($product->Detail_2)) { ?> <li><?php echo ucwords($product->Detail_2); ?></li> <?php } ?>
+                            <?php if(isset($product->Detail_3)) { ?> <li><?php echo ucwords($product->Detail_3); ?></li> <?php } ?>
+                            <?php if(isset($product->Detail_4)) { ?> <li><?php echo ucwords($product->Detail_4); ?></li> <?php } ?>
+                            <li>SKU: <?php echo strtoupper($product->Code); ?></li>
                         </ul>
-<!--                        <ul>
-                            <li>heel height: 100MM</li>
-                            <li>heel pitch: 100MM</li>
-                            <li>composition: Metallic nappa & Crackle boucle</li>
-                            <li>SKU: 423902FA1841910</li>
-                        </ul>-->
                         </p>
                         <h3 class="product-sub"><span style="border-bottom: 1px solid #555555 !important;">COLOUR</span></h3>
-                        <p>pearlnude</p>
+                        <p><?php echo ucwords($product->Color); ?></p>
+                        <div>
+                            <img src="<?php echo base_url('assets/images/size-chart.png'); ?>" alt="Size Chart"/>
+                        </div>
                         <button id="btn-2">
                             <a href="<?php echo base_url("home/store"); ?>">Where To Buy</a>
                         </button>
@@ -68,63 +66,24 @@
 <div class="flex-section gtco-gray-bg" style="padding: 1px;">
     <!--<div class="gtco-container">-->
     <div class="row">
+        <?php
+        $no = 0;
+        foreach ($products as $product) {
+        ?>    
         <div class="store-item col-md-3 col-sm-3 col-xs-6">
-            <a href="<?php echo base_url("home/collections/autumn-winter-2018/aw18-001"); ?>" class="gtco-card-item">
+            <a href="<?php echo base_url("home/collections/" . strtolower(str_replace(array(' ', '/'), array('-', '-'), $product->Category)) . "/" . strtolower($product->Code)); ?>" 
+               class="gtco-card-item" title="<?php echo $product->Name; ?>" alt="<?php echo $product->Name; ?>">
                 <figure>
                     <div class="overlay"></div>
                     <div>
-                        <img src="<?php echo base_url('assets/data/product/kht-01.jpg'); ?>" alt="Image" class="img-responsive">
-                        <div class="product-content">Citra Stones 1</div>
+                        <img src="<?php echo base_url('assets/data/product/'.$product->Id.'.jpg'); ?>" alt="<?php echo $product->Code; ?>" class="img-responsive">
+                        <div class="product-content"><?php echo $product->Name; ?></div>
                     </div>                    
                 </figure>
             </a>
         </div>
-        <div class="store-item col-md-3 col-sm-3 col-xs-6">
-            <a href="<?php echo base_url("home/collections/autumn-winter-2018/aw18-003"); ?>" class="gtco-card-item">
-                <figure>
-                    <div class="overlay"></div>
-                    <div>
-                        <img src="<?php echo base_url('assets/data/product/kht-03.jpg'); ?>" alt="Image" class="img-responsive">
-                        <div class="product-content">Citra Stones 3</div>
-                    </div> 
-                </figure>
-            </a>
-        </div>
-        <div class="store-item col-md-3 col-sm-3 col-xs-6">
-            <a href="<?php echo base_url("home/collections/autumn-winter-2018/aw18-004"); ?>" class="gtco-card-item">
-                <figure>
-                    <div class="overlay"></div>
-                    <div>
-                        <img src="<?php echo base_url('assets/data/product/kht-04.jpg'); ?>" alt="Image" class="img-responsive">
-                        <div class="product-content">Citra Stones 4</div>
-                    </div> 
-                </figure>
-            </a>
-        </div>
-        <div class="store-item col-md-3 col-sm-3 col-xs-6">
-            <a href="<?php echo base_url("home/collections/autumn-winter-2018/aw18-005"); ?>" class="gtco-card-item">
-                <figure>
-                    <div class="overlay"></div>
-                    <div>
-                        <img src="<?php echo base_url('assets/data/product/kht-05.jpg'); ?>" alt="Image" class="img-responsive">
-                        <div class="product-content">Citra Stones 5</div>
-                    </div> 
-                </figure>
-            </a>
-        </div>
+        <?php } ?>         
         <div class="clearfix visible-lg-block visible-md-block"></div>
     </div>
     <!--</div>-->
 </div>
-<!--<div id="gtco-subscribe">
-    <div class="gtco-container">
-        <div class="row animate-box">
-            <div class="col-md-12 text-center">
-                <p class="store-title"><?php echo $end_quote; ?></p>
-            </div>
-        </div>
-    </div>
-</div>
-</div>-->
-
-

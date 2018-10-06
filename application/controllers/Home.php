@@ -10,7 +10,8 @@ class Home extends CI_Controller {
 
         $this->load->model('Subscriber_model', '', TRUE);
         $this->load->model('Inquiry_model', '', TRUE);
-
+        $this->load->model('Product_model','',TRUE);
+        
     }
 
     public $class_menu = array(
@@ -28,6 +29,9 @@ class Home extends CI_Controller {
         $data['class_menu'] = $this->class_menu;
         $data['quote'] = "We believe that beautiful shoes will bring you beautiful steps that remain stay toward your heart.";
         $data['subscribe_view'] = TRUE;
+        
+        $whereclause = array();
+        $data['products'] = $this->Product_model->getCollections($whereclause, 0, 4);
 
         $this->load->view($this->config->item('frontend_themes'), $data);
     }
@@ -38,8 +42,12 @@ class Home extends CI_Controller {
 
         /** URL untuk detail product. * */
         if ($product_code) {
-            $this->detail_product($product_code);
-            return;
+            $p = $this->Product_model->getProductByCode(strtoupper($product_code));
+//            $this->mith_func->debugVar($p);
+            if(isset($p->Id)) {
+                $this->detail_product($p);
+                return;
+            }
         }
 
         $data['page_title'] = "Collections | Kehati Shoes";
@@ -49,21 +57,26 @@ class Home extends CI_Controller {
         $data['quote'] = "Spring / Summer 2019";
         $data['end_quote'] = "We have high quality services that you will surely love!";
         $data['subscribe_view'] = FALSE;
-
+        $whereclause = array();
+        $data['products'] = $this->Product_model->getCollections();
+        
         $this->load->view($this->config->item('frontend_themes'), $data);
     }
 
     public function detail_product($product) {
-        $category_name = $this->uri->segment(3);
-        $product_code = $this->uri->segment(4);
-
         $data['content_view'] = "frontend/details.php";
-        $data['page_title'] = $product_code . " | Kehati Shoes";
+        $data['page_title'] = $product->Code . " | Kehati Shoes";
         $this->class_menu['collections'] = 'active';
         $data['class_menu'] = $this->class_menu;
         $data['end_quote'] = "We have high quality services that you will surely love!";
         $data['subscribe_view'] = FALSE;
-
+        $data['product'] = $product;
+        
+        $whereclause = array(
+            'Code <>' => $product->Code,
+        );
+        $data['products'] = $this->Product_model->getCollections($whereclause, 0, 4);
+        
         $this->load->view($this->config->item('frontend_themes'), $data);
     }
 
@@ -126,7 +139,6 @@ class Home extends CI_Controller {
     public function submitsubscribe() {
         $data['message_sys'] = $this->lang->line('MESSAGE_SUBSCRIBE_FAILED');
         $data['class'] = 'danger';
-//        $this->mith_func->debugVar($this->input->post('email'));
 
         if ($this->input->post('email')) {
             $email = strtolower($this->input->post('email'));
