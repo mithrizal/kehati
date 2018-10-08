@@ -2849,13 +2849,14 @@ button#btn-2 a:hover{
     /*margin-top: 0;*/
     position: absolute;
     top: 33%;
-    left: 52%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 768px) {
     .insta-feed {
         font-size: 18px;
+        left: 50%;
         margin-bottom: 0px;
     }
     
