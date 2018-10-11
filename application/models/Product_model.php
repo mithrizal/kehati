@@ -67,7 +67,7 @@ class Product_model extends CI_Model {
         $this->db->insert($this->table_name, $data);
         $last_id = $this->db->insert_id();
         
-        $this->mith_func->debugVar($last_id);
+//        $this->mith_func->debugVar($last_id);
         return $last_id;
     }
 

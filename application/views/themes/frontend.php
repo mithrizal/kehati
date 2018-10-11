@@ -95,10 +95,12 @@
     </body>
     <footer id="gtco-footer" role="contentinfo">
         <?php
-        if ($subscribe_view) {
-            $this->load->view("themes/subscribe.php");
-        } else {
-            $this->load->view("themes/quote.php");
+        if(isset($subscribe_view)) {
+            if ($subscribe_view) {
+               $this->load->view("themes/subscribe.php");
+           } else {
+               $this->load->view("themes/quote.php");
+           }   
         }
         ?>
         <div class="gtco-container" style="padding-top: 50px; padding-bottom: 50px;">

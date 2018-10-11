@@ -94,6 +94,7 @@
 		$('body').on('click', '.js-gtco-nav-toggle', function(event){
 			var $this = $(this);
 
+
 			if ( $('body').hasClass('overflow offcanvas') ) {
 				$('body').removeClass('overflow offcanvas');
 			} else {

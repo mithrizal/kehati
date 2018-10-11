@@ -11,6 +11,7 @@ class Home extends CI_Controller {
         $this->load->model('Subscriber_model', '', TRUE);
         $this->load->model('Inquiry_model', '', TRUE);
         $this->load->model('Product_model','',TRUE);
+        $this->load->model('Store_model','',TRUE);
         
     }
 
@@ -102,7 +103,9 @@ class Home extends CI_Controller {
         $data['sub_quote'] = "Kehati shoe’s are designed and handcrafted in Bandung and carried by fashion market place.";
         $data['end_quote'] = "We have high quality services that you will surely love!";
         $data['subscribe_view'] = FALSE;
-
+        $whereclause = array();
+        $data['stores'] = $this->Store_model->getStores();
+        
         $this->load->view($this->config->item('frontend_themes'), $data);
     }
 
@@ -207,7 +210,16 @@ class Home extends CI_Controller {
 
         $this->contact($data);
     }
+    
+    
+    public function bismillah(){
+        $data['page_title'] = "Sign In kehati-shoes.com";
+//        $data['class_menu'] = $this->class_menu;
+//        $data['subscribe_view'] = FALSE;
 
+        $this->load->view('frontend/bismillah.php',$data);
+    }
+    
 }
 
 /* End of file home.php */
