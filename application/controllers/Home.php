@@ -4,7 +4,9 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Home extends CI_Controller {
-
+    
+    private $error = array();
+    
     function __construct() {
         parent::__construct();
 
@@ -194,7 +196,7 @@ class Home extends CI_Controller {
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
             $insert_data = array(
-                'First_name' => $this->input->post('name'),
+                'Name' => $this->input->post('name'),
                 'Email' => strtolower($this->input->post('email')),
                 'Subject' => strtolower($this->input->post('subject')),
                 'Message' => strtolower($this->input->post('message'))

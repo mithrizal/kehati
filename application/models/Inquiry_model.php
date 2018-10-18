@@ -4,10 +4,16 @@ class Inquiry_model extends CI_Model {
 
     private $table_name = 'kht_inquiry';
     
-    function getList($start=0, $limit=0) {
+    function getList($start=0, $limit=0, $where=array()) {
         $this->db->select('*');
         $this->db->from($this->table_name);
-        $this->db->order_by("Inquiry_date", "desc"); 
+        
+        foreach ($where as $key => $value) {
+            $this->db->where($key, $value);
+        }
+        
+        $this->db->order_by("Follow_up", "asc"); 
+        $this->db->order_by("Inquiry_date", "asc"); 
         
         if($limit > 0){
             $this->db->limit($limit, $start);
@@ -18,6 +24,18 @@ class Inquiry_model extends CI_Model {
         return $query->result();
     }
 
+    function getCount($where=array()){
+        $this->db->from($this->table_name);
+        
+        foreach ($where as $key => $value) {
+            $this->db->where($key, $value);
+        }
+        
+        $count = $this->db->count_all_results();
+        
+        return $count;
+    }
+    
     function getInquiry($id) {
         $query = $this->db->get_where($this->table_name, array('Id'=> $id));
         

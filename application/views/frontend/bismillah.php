@@ -20,7 +20,6 @@
         <!--===============================================================================================-->	
         <link rel="shortcut icon" type="image/png" href="<?php echo base_url('assets/images/favicon.png'); ?>">                
         <!--===============================================================================================-->
-        <!--vendor/bootstrap/css/bootstrap.min.css-->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css'); ?>">
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/iconic/css/material-design-iconic-font.min.css'); ?>">

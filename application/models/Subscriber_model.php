@@ -3,10 +3,9 @@
 class Subscriber_model extends CI_Model {
 
     private $table_name = 'kht_subscriber';
-//    private $table_join = 'volt_country';    
     
     function getList($start=0, $limit=0, $email='') {
-        $this->db->select('Email, Join_date');
+        $this->db->select('Id, Email, Join_date');
         $this->db->from($this->table_name);
         $this->db->order_by("Join_date", "asc"); 
         
@@ -22,7 +21,19 @@ class Subscriber_model extends CI_Model {
         
         return $query->result();
     }
-
+    
+    function getCount($where=array()){
+        $this->db->from($this->table_name);
+        
+        foreach ($where as $key => $value) {
+            $this->db->where($key, $value);
+        }
+        
+        $count = $this->db->count_all_results();
+        
+        return $count;
+    }
+    
     function getSubscriber($email) {
         $query = $this->db->get_where($this->table_name, array('Email'=> strtolower($email)));
         
@@ -41,11 +52,11 @@ class Subscriber_model extends CI_Model {
         $this->db->update($this->table_name, $data);        
     }
 
-    function deleteSubscriber($email) {
-        $this->db->where('Email', $email);
+    function deleteSubscriber($id) {
+        $this->db->where('Id', $id);
         $this->db->delete($this->table_name);
         
-        $res = $this->db->_error_number();        
+        $res = $this->db->affected_rows();        
         return $res;
     }
         
